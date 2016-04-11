@@ -12,9 +12,10 @@ namespace MapHive.Identity.MembershipReboot
         //Note: all the extra properties should be virtual
 
 
-        //TODO - some WebGIS related user properties
+        //TODO - some MapHive related user properties
 
         //Note:
-        //this can be done as an extra user storage object or objects
+        //This can be also done as an extra user storage object or objects just need to extend the custom db context by adding the required db sets; then the user account handling needs to account for the xtra properties.
+        //This is actually even better idea, as the MembershipReboot stuff is kep in one place only and the customisation gets its own table(s)
     }
 }

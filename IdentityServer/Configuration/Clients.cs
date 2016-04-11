@@ -33,7 +33,7 @@ namespace MapHive.Identity.IdentityServer.Configuration
                         new Secret("maphive-api-client-test-secret".Sha256()) //validated when obtaining a token
                     },
 
-                    //allow access to the identityapi and webgisapi endpoints
+                    //allow access to the identity-api and maphive-api endpoints
                     AllowedScopes = new List<string> { "identity-api", "maphive-api" }
                 }
 
