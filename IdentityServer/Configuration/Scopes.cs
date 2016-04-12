@@ -17,13 +17,11 @@ namespace MapHive.Identity.IdentityServer.Configuration
         {
             return new List<Scope>
             {
-                StandardScopes.OpenId,
-                //StandardScopes.Profile,
+                //For the initial setup no identity scopes are defined as at this stage neither implicit flow nor SSO are required 
+                //claims data is accessed through the particular scopes!
 
-                StandardScopes.Email,
-                //Note, when requesting access token, the above gets discarderd,
-                //can use istead
-                StandardScopes.ProfileAlwaysInclude,
+                //TODO - move the scopes to some other persistent storage- db, maybe web.config (will cause app pool reload) or a txt / json file, so no need to recompile when this changes - during the dev though this is not that bad
+                
 
                 new Scope
                 {
@@ -32,29 +30,31 @@ namespace MapHive.Identity.IdentityServer.Configuration
                     DisplayName = "Identity API",
                     Description = "Grants access to the Identity API - authentication and user handling endpoint",
 
-                    //secret is needed so can use it for the access token validation at the service level
-                    ScopeSecrets = new List<Secret>
-                    {
-                        new Secret("identity-api-scope-test-secret".Sha256())
-                    },
+                    Type = ScopeType.Resource,
 
-                    Type = ScopeType.Resource
+                    Claims = new List<ScopeClaim>
+                    {
+                        //specify the user claims the scope exposes
+
+                    }
                 },
 
+                //Note: think this is gonna be the only scope for now.
+                //the identity api will become a core identity api logics class lib that needs to be exposed through a webservice
                 new Scope
                 {
-                    Name = "maphive-api",
+                    Name = "maphive_api",
 
                     DisplayName = "MapHiveAPI",
                     Description = "Grants access to the MapHiveAPI",
 
-                    //secret is needed so can use it for the access token validation at the service level
-                    ScopeSecrets = new List<Secret>
-                    {
-                        new Secret("maphive-api-scope-test-secret".Sha256())
-                    },
+                    Type = ScopeType.Resource,
 
-                    Type = ScopeType.Resource
+                    Claims = new List<ScopeClaim>
+                    {
+                        //specify the user claims the scope exposes
+                        //stuff like emails, etc. see the IdSrv metadata endpoint to see what claims / scopes are supported
+                    }
                 }
             };
         }

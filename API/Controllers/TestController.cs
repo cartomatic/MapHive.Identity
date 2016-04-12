@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 
 namespace MapHive.Identity.API.Controllers
@@ -29,6 +30,11 @@ namespace MapHive.Identity.API.Controllers
         [Authorize]
         public string PreventNonAuthorised()
         {
+            //current user of the api
+            var claimsPrincipal = User as ClaimsPrincipal;
+
+            //can now search claims and extract the data needed to get the roles and such...
+
             return "Only authorised access allowed";
         }
     }
