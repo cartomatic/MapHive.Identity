@@ -19,8 +19,8 @@ namespace MapHive.Identity.IdentityServer.Configuration
                 //this client accesses the IdentityServer from the IdentityAPI level and obtains a token that is later used to access the rekayted APIs
                 new Client
                 {
-                    ClientName = "MapHive API Client",
-                    ClientId = "maphive-api-client",
+                    ClientName = "MapHive API",
+                    ClientId = "maphive-api",
                     Enabled = true,
 
                     //Note: because JWT token carries quite a lot of potentially sensitive info, use the reference token
@@ -42,7 +42,7 @@ namespace MapHive.Identity.IdentityServer.Configuration
 
                     ClientSecrets = new List<Secret>
                     {
-                        new Secret("maphive-api-client-test-secret".Sha256()) //validated when obtaining a token
+                        new Secret("maphive-api-test-secret".Sha256()) //validated when obtaining a token
                     },
 
                     //allow access to the identity-api and maphive-api endpoints
