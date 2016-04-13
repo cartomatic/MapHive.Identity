@@ -17,8 +17,13 @@ namespace MapHive.Identity.IdentityServer.Configuration
         {
             return new List<Scope>
             {
+                
                 //For the initial setup no identity scopes are defined as at this stage neither implicit flow nor SSO are required 
                 //claims data is accessed through the particular scopes!
+                
+                //the only exception is the offline_access scope, so the refresh tokens can be obtained
+                StandardScopes.OfflineAccess,
+
 
                 //TODO - move the scopes to some other persistent storage- db, maybe web.config (will cause app pool reload) or a txt / json file, so no need to recompile when this changes - during the dev though this is not that bad
                 
