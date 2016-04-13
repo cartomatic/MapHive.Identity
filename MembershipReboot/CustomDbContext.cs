@@ -32,7 +32,7 @@ namespace MapHive.Identity.MembershipReboot
             //need to override the schema for the object here as it defaults to dbo of course
             modelBuilder.HasDefaultSchema("mr");
 
-            //TODO - need to workout what objects do actually get created! and maybe make their names more postgres like - lowercase. this way all the potential querries will be easier to write!
+            //TODO - need to workout what objects do actually get created! and maybe make their names more postgres like - lowercase. this way all the potential querries will be easier to write! Though remapping them may become cumbersome when updates are available!
 
             base.OnModelCreating(modelBuilder);
         }

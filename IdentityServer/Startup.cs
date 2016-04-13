@@ -15,15 +15,16 @@ namespace MapHive.Identity.IdentityServer
     {
         public void Configuration(IAppBuilder app)
         {
-            //grab the conn name for the MR database
-            var dbConnStringName = ConfigurationManager.AppSettings["MembershipRebootIdentityDb"];
+            //grab the conn names for the MR and IdSrv databases
+            var mrDbConnStringName = ConfigurationManager.AppSettings["MembershipRebootDb"];
+            var idSrvDbConnStringName = ConfigurationManager.AppSettings["IdentityServerDb"];
 
 
             //expose identity manager at /admin
             app.Map("/admin", adminApp =>
             {
                 var factory = new IdentityManagerServiceFactory();
-                factory.Configure(dbConnStringName);
+                factory.Configure(mrDbConnStringName);
 
                 adminApp.UseIdentityManager(new IdentityManagerOptions()
                 {
@@ -35,9 +36,9 @@ namespace MapHive.Identity.IdentityServer
             //expose identity server at /core
             app.Map("/core", core =>
             {
-                var idSvrFactory = Factory.Configure();
+                var idSvrFactory = Factory.Configure(idSrvDbConnStringName);
 
-                idSvrFactory.ConfigureCustomUserService(dbConnStringName);
+                idSvrFactory.ConfigureCustomUserService(mrDbConnStringName);
 
                 var options = new IdentityServerOptions
                 {

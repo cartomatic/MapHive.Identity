@@ -22,31 +22,14 @@ namespace MapHive.Identity.IdentityServer.Configuration
 
                 //TODO - move the scopes to some other persistent storage- db, maybe web.config (will cause app pool reload) or a txt / json file, so no need to recompile when this changes - during the dev though this is not that bad
                 
-
-                new Scope
-                {
-                    Name = "identity-api",
-
-                    DisplayName = "Identity API",
-                    Description = "Grants access to the Identity API - authentication and user handling endpoint",
-
-                    Type = ScopeType.Resource,
-
-                    Claims = new List<ScopeClaim>
-                    {
-                        //specify the user claims the scope exposes
-
-                    }
-                },
-
                 //Note: think this is gonna be the only scope for now.
                 //the identity api will become a core identity api logics class lib that needs to be exposed through a webservice
                 new Scope
                 {
                     Name = "maphive_api",
 
-                    DisplayName = "MapHiveAPI",
-                    Description = "Grants access to the MapHiveAPI",
+                    DisplayName = "MapHive API",
+                    Description = "Grants access to the MapHive API",
 
                     Type = ScopeType.Resource,
 
@@ -54,6 +37,7 @@ namespace MapHive.Identity.IdentityServer.Configuration
                     {
                         //specify the user claims the scope exposes
                         //stuff like emails, etc. see the IdSrv metadata endpoint to see what claims / scopes are supported
+                        new ScopeClaim(StandardScopes.OpenId.Name, alwaysInclude: true)
                     }
                 }
             };
