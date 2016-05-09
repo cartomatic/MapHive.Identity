@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Path", "..\Utils\Path\Path.csproj", "{9346897A-EB29-462D-B46C-70804E1B9DC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{9D49486D-0DFA-409C-B883-29467780F69C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{9346897A-EB29-462D-B46C-70804E1B9DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9346897A-EB29-462D-B46C-70804E1B9DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9346897A-EB29-462D-B46C-70804E1B9DC8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9D49486D-0DFA-409C-B883-29467780F69C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9D49486D-0DFA-409C-B883-29467780F69C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9D49486D-0DFA-409C-B883-29467780F69C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9D49486D-0DFA-409C-B883-29467780F69C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
