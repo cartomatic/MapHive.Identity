@@ -16,7 +16,10 @@ namespace MapHive.Identity.IdentityServer.Configuration
         {
             factory.UserService = new Registration<IUserService, CustomMembershipRebootUserService>();
             factory.Register(new Registration<CustomUserAccountService>());
+
+            //Note: here is where some events may be configured on the MembershipReboot's config object; this is the place to hook up some handlers for scenarios such as account lock down email notifications, etc.
             factory.Register(new Registration<CustomConfig>(CustomConfig.Get()));
+
             factory.Register(new Registration<CustomUserAccountRepository>());
             factory.Register(new Registration<CustomDbContext>(resolver => new CustomDbContext(connString)));
         }
