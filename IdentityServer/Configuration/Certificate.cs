@@ -82,14 +82,9 @@ namespace MapHive.Identity.IdentityServer.Configuration
         {
             X509Certificate2 cert = null;
 
-            if (!string.IsNullOrEmpty(cfg.Password))
-            {
-                cert = new X509Certificate2(cfg.FilePath.SolvePath(), cfg.Password); 
-            }
-            else
-            {
-                cert = new X509Certificate2(cfg.FilePath.SolvePath());
-            }
+            cert = !string.IsNullOrEmpty(cfg.Password) ? 
+                  new X509Certificate2(cfg.FilePath.SolvePath(), cfg.Password, X509KeyStorageFlags.MachineKeySet) 
+                : new X509Certificate2(cfg.FilePath.SolvePath(), string.Empty, X509KeyStorageFlags.MachineKeySet);
 
             return cert;
         }
@@ -111,14 +106,9 @@ namespace MapHive.Identity.IdentityServer.Configuration
                 certData = ReadStream(stream);
             }
 
-            if (!string.IsNullOrEmpty(cfg.Password))
-            {
-                cert = new X509Certificate2(certData, cfg.Password);
-            }
-            else
-            {
-                cert = new X509Certificate2(certData);
-            }
+            cert = !string.IsNullOrEmpty(cfg.Password) ?
+                  new X509Certificate2(certData, cfg.Password, X509KeyStorageFlags.MachineKeySet) 
+                : new X509Certificate2(certData, string.Empty, X509KeyStorageFlags.MachineKeySet);
 
             return cert;
         }
