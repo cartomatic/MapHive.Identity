@@ -42,7 +42,7 @@ namespace MapHive.Identity.IdentityServer
 
                 var options = new IdentityServerOptions
                 {
-                    SiteName = "EmapaSA IdentityServer",
+                    SiteName = "MapHive IdentityServer",
 
                     IssuerUri = ConfigurationManager.AppSettings["IdentityServerUri"],
 
