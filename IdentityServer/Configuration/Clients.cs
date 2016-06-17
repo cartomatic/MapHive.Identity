@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using IdentityServer3.Core;
 using IdentityServer3.Core.Models;
 
 namespace MapHive.Identity.IdentityServer.Configuration
@@ -30,11 +31,12 @@ namespace MapHive.Identity.IdentityServer.Configuration
                     AccessTokenType = AccessTokenType.Reference,
                     //AccessTokenType = AccessTokenType.Jwt, //nice, but very verbose and potentially carries sensitive data (if requested of course :)
 
-                    //so can actually access it directly using a secret; client is use
+                    //so can actually access it directly using a secret
                     Flow = Flows.ResourceOwner,
 
-                    //No need to play with the token lifetime; this is because the tokens are to be stored in a persistent storage and it will be possible
-                    //to wipe them out when required. Therefore instead of playing with the token lifetime, cache lifetime is used when configuring UseIdentityServerBearerTokenAuthentication
+                    //TODO - work out a sensible token lifetime; use refresh tokens to renew access tokens silently
+                    //TODO - or use token cache in the web api and wipe out tokens in the db if not needed anymore.
+                    //Therefore maybe instead of playing with the token lifetime, cache lifetime is used when configuring UseIdentityServerBearerTokenAuthentication
                     //check EnableValidationResultCache and ValidationResultCacheDuration of the IdentityServerBearerTokenAuthenticationOptions.
                     //AccessTokenLifetime = 70,
 
@@ -46,7 +48,13 @@ namespace MapHive.Identity.IdentityServer.Configuration
                     },
 
                     //allow access to the identity-api and maphive-api endpoints
-                    AllowedScopes = new List<string> { "maphive_api", "offline_access" }
+                    AllowedScopes = new List<string>
+                    {
+                        "maphive_api",
+                        Constants.StandardScopes.OfflineAccess
+
+                        //no need for identity scopes here. will use resource owner flow
+                    }
                 }
 
                 //Note:
