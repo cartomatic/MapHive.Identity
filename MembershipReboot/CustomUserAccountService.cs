@@ -13,5 +13,30 @@ namespace MapHive.Identity.MembershipReboot
             : base(config, repo)
         {
         }
+
+        /// <summary>
+        /// Gets an instance of CustomUserAccountService bound to a particular db context
+        /// </summary>
+        /// <param name="connStringName"></param>
+        /// <returns></returns>
+        public static CustomUserAccountService GetInstance(string connStringName)
+        {
+            return GetInstance(new CustomDbContext(connStringName));
+        }
+
+        /// <summary>
+        /// Gets an instance of CustomUserAccountService bound to a particular db context
+        /// </summary>
+        /// <typeparam name="TDbCtx"></typeparam>
+        /// <param name="dbCtx"></param>
+        /// <returns></returns>
+        public static CustomUserAccountService GetInstance<TDbCtx>(TDbCtx dbCtx)
+            where TDbCtx : CustomDbContext
+        {
+            return new CustomUserAccountService(
+                CustomConfig.Get(),
+                new CustomUserAccountRepository(dbCtx)
+            );
+        }
     }
 }

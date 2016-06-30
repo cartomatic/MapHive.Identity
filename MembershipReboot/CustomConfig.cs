@@ -55,9 +55,39 @@ namespace MapHive.Identity.MembershipReboot
             //config.AddEventHandler(new CustomEventHandler());
         }
 
+
+        /// <summary>
+        /// Returns a 'safe' copy of config so events are subscribed only at a returned object level
+        /// </summary>
+        /// <returns></returns>
         public static CustomConfig Get()
         {
-            return config;
+            return Clone(config);
+        }
+
+        /// <summary>
+        /// Clones a config object so it's safe when subscribing to events
+        /// </summary>
+        /// <param name="cfg"></param>
+        /// <returns></returns>
+        protected static CustomConfig Clone(CustomConfig cfg)
+        {
+            return new CustomConfig
+            {
+                EmailIsUsername = cfg.EmailIsUsername,
+                VerificationKeyLifetime = cfg.VerificationKeyLifetime,
+                AccountLockoutDuration = cfg.AccountLockoutDuration,
+                AccountLockoutFailedLoginAttempts = cfg.AccountLockoutFailedLoginAttempts,
+                AllowAccountDeletion = cfg.AllowAccountDeletion,
+                AllowLoginAfterAccountCreation = cfg.AllowLoginAfterAccountCreation,
+                DefaultTenant = cfg.DefaultTenant,
+                EmailIsUnique = cfg.EmailIsUnique,
+                MultiTenant = cfg.MultiTenant,
+                PasswordHashingIterationCount = cfg.PasswordHashingIterationCount,
+                PasswordResetFrequency = cfg.PasswordResetFrequency,
+                RequireAccountVerification = cfg.RequireAccountVerification,
+                UsernamesUniqueAcrossTenants = cfg.UsernamesUniqueAcrossTenants
+            };
         }
     }
 }
