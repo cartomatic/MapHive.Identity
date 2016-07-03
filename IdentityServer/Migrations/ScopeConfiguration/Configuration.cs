@@ -5,7 +5,7 @@ namespace MapHive.Identity.IdentityServer.Migrations.ScopeConfiguration
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MapHive.Identity.IdentityServer.Migrations.ScopeConfigurationDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<MapHive.Identity.IdentityServer.Migrations.ScopeConfigurationDbContext>
     {
         public Configuration()
         {

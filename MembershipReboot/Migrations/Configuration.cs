@@ -5,7 +5,7 @@ namespace MapHive.Identity.MembershipReboot.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CustomDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<CustomDbContext>
     {
         public Configuration()
         {
