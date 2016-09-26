@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using IdentityServer3.Core;
 using IdentityServer3.Core.Models;
+using Newtonsoft.Json;
 
 namespace MapHive.Identity.IdentityServer.Configuration
 {
@@ -11,10 +13,12 @@ namespace MapHive.Identity.IdentityServer.Configuration
     {
         public static IEnumerable<Client> Get()
         {
+            return JsonConvert.DeserializeObject<List<SerialisableClient>>(ConfigurationManager.AppSettings["IdentityServerClients"]).Select(sc => sc.ToClient());
+
+            //Note:
+            //If external auth is to be added, a new client with the implicit flow will be required
             return new[]
             {
-                //TODO - move the clients to some other persistent storage- db, maybe web.config (will cause app pool reload) or a txt / json file, so no need to recompile when this changes - during the dev though this is not that bad
-
                 //client that will authenticate user and obtain token in his name;
                 //because the auth is proxied, SSO will not work
                 //this client accesses the IdentityServer from the IdentityAPI level and obtains a token that is later used to access the rekayted APIs
@@ -56,9 +60,6 @@ namespace MapHive.Identity.IdentityServer.Configuration
                         //no need for identity scopes here. will use resource owner flow
                     }
                 }
-
-                //Note:
-                //If external auth is to be added, a new client with the implicit flow will be required
             };
         }
     }

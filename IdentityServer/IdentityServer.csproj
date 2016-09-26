@@ -168,6 +168,8 @@
     <Compile Include="Configuration\IdentityManagerServiceFactoryExtensions.cs" />
     <Compile Include="Configuration\IdentityServerServiceFactoryExtensions.cs" />
     <Compile Include="Configuration\Scopes.cs" />
+    <Compile Include="Configuration\SerialisableClient.cs" />
+    <Compile Include="Configuration\SerialisableScope.cs" />
     <Compile Include="Migrations\ClientConfiguration\201604131327227_InitialCreate.cs" />
     <Compile Include="Migrations\ClientConfiguration\201604131327227_InitialCreate.Designer.cs">
       <DependentUpon>201604131327227_InitialCreate.cs</DependentUpon>
