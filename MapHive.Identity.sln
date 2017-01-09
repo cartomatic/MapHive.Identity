@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipReboot", "MembershipReboot\MembershipReboot.csproj", "{6A019F7A-EB90-48E9-BA91-07DA7D40BDD4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{1E6AF2AD-ABD0-4185-BAA1-52F312D8C69F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Path", "..\Utils\Path\Path.csproj", "{9346897A-EB29-462D-B46C-70804E1B9DC8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Path", "..\Cartomatic.Utils\Path\Path.csproj", "{9346897A-EB29-462D-B46C-70804E1B9DC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
