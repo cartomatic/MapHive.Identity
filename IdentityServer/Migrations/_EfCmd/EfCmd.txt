@@ -1,0 +1,13 @@
+﻿add-migration -ConnectionString "server=localhost;user id=postgres;password=postgres;database=maphive_idsrv;port=5434" -project IdentityServer -ConnectionProviderName "Npgsql" -ConfigurationTypeName MapHive.Identity.IdentityServer.Migrations.ClientConfiguration.Configuration
+
+add-migration -ConnectionString "server=localhost;user id=postgres;password=postgres;database=maphive_idsrv;port=5434" -project IdentityServer -ConnectionProviderName "Npgsql" -ConfigurationTypeName MapHive.Identity.IdentityServer.Migrations.OperationalConfiguration.Configuration
+
+add-migration -ConnectionString "server=localhost;user id=postgres;password=postgres;database=maphive_idsrv;port=5434" -project IdentityServer -ConnectionProviderName "Npgsql" -ConfigurationTypeName MapHive.Identity.IdentityServer.Migrations.ScopeConfiguration.Configuration
+
+
+
+update-database -ConnectionString "server=localhost;user id=postgres;password=postgres;database=maphive_idsrv;port=5434" -project IdentityServer -ConnectionProviderName "Npgsql" -ConfigurationTypeName MapHive.Identity.IdentityServer.Migrations.ClientConfiguration.Configuration
+
+update-database -ConnectionString "server=localhost;user id=postgres;password=postgres;database=maphive_idsrv;port=5434" -project IdentityServer -ConnectionProviderName "Npgsql" -ConfigurationTypeName MapHive.Identity.IdentityServer.Migrations.OperationalConfiguration.Configuration
+
+update-database -ConnectionString "server=localhost;user id=postgres;password=postgres;database=maphive_idsrv;port=5434" -project IdentityServer -ConnectionProviderName "Npgsql" -ConfigurationTypeName MapHive.Identity.IdentityServer.Migrations.ScopeConfiguration.Configuration
