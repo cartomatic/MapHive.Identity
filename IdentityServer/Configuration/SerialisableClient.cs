@@ -31,6 +31,11 @@ namespace MapHive.Identity.IdentityServer.Configuration
         public AccessTokenType AccessTokenType { get; set; }
 
         /// <summary>
+        /// Life time of access token in seconds; defaults to 3600 (1 hour)
+        /// </summary>
+        public int AccessTokenLifetime { get; set; }
+
+        /// <summary>
         /// Specifies the scopes that the client is allowed to request. If empty, the client can't access any scope
         /// </summary>
         public List<string> AllowedScopes { get; set; }

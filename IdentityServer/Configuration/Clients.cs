@@ -45,7 +45,6 @@ namespace MapHive.Identity.IdentityServer.Configuration
                     //AccessTokenLifetime = 70,
 
 
-
                     ClientSecrets = new List<Secret>
                     {
                         new Secret("maphive-api-test-secret".Sha256()) //validated when obtaining a token
