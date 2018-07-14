@@ -7,6 +7,7 @@ using System.Configuration;
 using IdentityManager.Configuration;
 using IdentityServer3.Core.Configuration;
 using MapHive.Identity.IdentityServer.Configuration;
+using Serilog;
 
 
 namespace MapHive.Identity.IdentityServer
@@ -19,6 +20,15 @@ namespace MapHive.Identity.IdentityServer
             var mrDbConnStringName = ConfigurationManager.AppSettings["MembershipRebootDb"];
             var idSrvDbConnStringName = ConfigurationManager.AppSettings["IdentityServerDb"];
 
+            //Log.Logger = new LoggerConfiguration()
+            //    .MinimumLevel.Debug()
+            //    .WriteTo.Console()
+            //    .CreateLogger();
+
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Trace()
+                .CreateLogger();
 
             //expose identity manager at /admin
             app.Map("/admin", adminApp =>
