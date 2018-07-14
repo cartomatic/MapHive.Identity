@@ -25,10 +25,10 @@ namespace MapHive.Identity.IdentityServer
             //    .WriteTo.Console()
             //    .CreateLogger();
 
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.Trace()
-                .CreateLogger();
+            //Log.Logger = new LoggerConfiguration()
+            //    .MinimumLevel.Debug()
+            //    .WriteTo.Trace()
+            //    .CreateLogger();
 
             //expose identity manager at /admin
             app.Map("/admin", adminApp =>
