@@ -70,6 +70,7 @@ namespace MapHive.Identity.IdentityServer.Configuration
             return new Client
             {
                 AccessTokenType = AccessTokenType,
+                AccessTokenLifetime = AccessTokenLifetime,
                 AllowedScopes = AllowedScopes,
                 ClientId = ClientId,
                 ClientName = ClientName,
